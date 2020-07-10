@@ -41,16 +41,20 @@
 # print(dobType)
 #
 #-----------------------------------------------------------------------
+#
+# name = input("What is your name?")
+# age = int(input("What is your age")) #casting change one data type to another
+# age = int(input("Siblings"))
+# decimal = float(print("Favourite decimal"))
+# animal = input("what is your fav animal")
+#
+# print(f"Hi {name} you're {age} and you have {siblings} your fav dec is {decimal} and your fav animal is {animal}")
+#-------boolean ---------------
 
-print("What is your name")
-name = input()
-print("What is your age")
-age = input()
-print("Siblings")
-siblings = input()
-print("Favourite decimal")
-decimal = input()
-print("Favourite animal")
-animal = input()
+hw = "Hello World!"
 
-print(f"Hi {name} you're {age} and you have {siblings} your fav dec is {decimal} and your fav animal is {animal}")
+hw.isalpha()
+print(hw.islower())
+print(hw.isupper())
+print(hw.startswith("H"))
+print(hw.endswith("!"))
