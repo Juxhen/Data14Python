@@ -3,7 +3,7 @@ endInput = int(input(("What number do you want to end to?\n")))
 increment = int(input("What increments would you like to proceed with?\n"))
 customFizz = input("What's your fizz?\n")
 customBuzz = input("What's your Buzz?\n")
-
+# theList = []
 if not customFizz:
     for currentNumber in range(startInput, endInput, increment):
         if currentNumber % 3 == 0 and currentNumber % 5 == 0:
@@ -24,5 +24,3 @@ else:
             print(customBuzz)
         else:
             print(currentNumber)
-
-# ADD GUI
