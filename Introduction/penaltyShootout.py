@@ -41,6 +41,13 @@ goalOrMiss = {
     0 : "Miss",
     1 : "Goal"
 }
+#  #to Change odds of scoring or missing
+# goalOrMiss2 = {}
+# for x in range(1,10):
+#     goalOrMiss2[x] = "Miss"
+# for x in range(10,17):
+#     goalOrMiss2[x] = "Goal"
+# print(goalOrMiss2)
 
 flag1 = False
 while not flag1:
@@ -59,7 +66,12 @@ while not flag1:
 flag2 = False
 while not flag2:
     awayTeam = input("Please enter the name of the away team\n").upper()
-    if awayTeam.isalpha():
+    if awayTeam == "CHARLIE":
+        print("Hi there, in Jux's penalty shootout simulator we refrain from using profanity,\n"
+              "please ensure the name you entered is not an offensive one\n"
+              "I have displayed a list of all the offensive names we will not accept\n"
+              "1. Charlie")
+    elif awayTeam.isalpha():
         awayTeam = str(awayTeam)
         flag2 = True
     else:
