@@ -5,7 +5,7 @@ playerCharacterChoiceIndex ={
     2: {"Type": "Ranger", "Strength": "Mage", "Weakness": "Melee"},
     3: {"Type": "Warrior", "Strength": "Ranger", "Weakness": "Mage"},
 }
-playerHealthList = []
+playerHealthList = [100]
 check1 = False
 while not check1:
     character = input("Please select a character\n"
@@ -32,6 +32,7 @@ print("We need to save the princess who is stuck at the Gnome Stronghold\n"
       "we have to first get past Lumbridge")
 t.sleep(3)
 characterHealth = 100
+newHealth = characterHealth
 lumbridgePart1 = False
 damageTaken = 0
 while not lumbridgePart1 and characterHealth - damageTaken > 0:
@@ -46,13 +47,9 @@ while not lumbridgePart1 and characterHealth - damageTaken > 0:
         print("you fall into a trap, uh oh!")
         damageTaken = r.randint(1,10)
         t.sleep(2)
-        newHealth = characterHealth - damageTaken
+        newHealth -= damageTaken
         print(f"you took {damageTaken} damage, your health is at {newHealth}")
-        if len(playerHealthList) == 0:
-            playerHealthList.append(newHealth)
-        else:
-            #playerHealthList.pop()
-            playerHealthList[0] = newHealth
+        playerHealthList[-1] = newHealth
     elif characterDirection == "a":
         print("the west passage is clear, good job")
         lumbridgePart1 = True
@@ -61,21 +58,13 @@ while not lumbridgePart1 and characterHealth - damageTaken > 0:
         damageTaken = r.randint(1,10)
         t.sleep(2)
         print(f"you took {damageTaken} damage, your health is at {newHealth}")
-        if len(playerHealthList) == 0:
-            playerHealthList.append(newHealth)
-        else:
-            #playerHealthList.pop()
-            playerHealthList[0] = newHealth
+        playerHealthList[-1] = newHealth
     elif characterDirection == "d":
         print("you fall into a trap, uh oh!")
         damageTaken = r.randint(1,10)
         t.sleep(2)
         print(f"you took {damageTaken} damage, your health is at {newHealth}")
-        if len(playerHealthList) == 0:
-            playerHealthList.append(newHealth)
-        else:
-            #playerHealthList.pop()
-            playerHealthList[0] = newHealth
+        playerHealthList[-1] = newHealth
     else:
         print("please enter a valid direction.")
 t.sleep(2)
