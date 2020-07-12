@@ -34,7 +34,7 @@ t.sleep(3)
 characterHealth = 100
 lumbridgePart1 = False
 damageTaken = 0
-while not lumbridgePart1 and characterHealth - damageTaken > 0 :
+while not lumbridgePart1 and characterHealth - damageTaken > 0:
     t.sleep(2)
     characterDirection = input("You have spawned in Lumbridge, would you like to go\n"
           "'w' to go north\n"
@@ -51,32 +51,34 @@ while not lumbridgePart1 and characterHealth - damageTaken > 0 :
         if len(playerHealthList) == 0:
             playerHealthList.append(newHealth)
         else:
-            playerHealthList.pop()
-            playerHealthList.append(newHealth)
+            #playerHealthList.pop()
+            playerHealthList[0] = newHealth
     elif characterDirection == "a":
         print("the west passage is clear, good job")
         lumbridgePart1 = True
     elif characterDirection == "s":
-        print("the south passage is clear, good job")
+        print("you fall into a trap, uh oh!")
         damageTaken = r.randint(1,10)
         t.sleep(2)
         print(f"you took {damageTaken} damage, your health is at {newHealth}")
         if len(playerHealthList) == 0:
             playerHealthList.append(newHealth)
         else:
-            playerHealthList.pop()
-            playerHealthList.append(newHealth)
+            #playerHealthList.pop()
+            playerHealthList[0] = newHealth
     elif characterDirection == "d":
-        print("the east passage is clear, good job")
+        print("you fall into a trap, uh oh!")
         damageTaken = r.randint(1,10)
         t.sleep(2)
         print(f"you took {damageTaken} damage, your health is at {newHealth}")
         if len(playerHealthList) == 0:
             playerHealthList.append(newHealth)
         else:
-            playerHealthList.pop()
-            playerHealthList.append(newHealth)
+            #playerHealthList.pop()
+            playerHealthList[0] = newHealth
     else:
         print("please enter a valid direction.")
+t.sleep(2)
 print("Congratulations you successfully passed Chapter 1 of Lumbridge")
-print(f"your health is at: {playerHealthList}")
+t.sleep(1)
+print(f"your health is at: {playerHealthList[-1]}")
