@@ -1,5 +1,8 @@
 import random as r
 import time as t
+# import numpy as np
+# from numpy.distutils.system_info import tmp
+
 
 def playerHealth(Health, damage):
     Health -= damage
@@ -15,15 +18,24 @@ def trap(Health):
     print(f"you took {damageTaken} damage, your health is at {Health}")
     return Health
 
+# def initialise(path):
+#     path = input("You have spawned in Lumbridge, would you like to go\n"
+#                                "'w' to go north\n"
+#                                "'a' to go west\n"
+#                                "'s' to go south\n"
+#                                "'d' to go east\n").lower()
+#     return path
+#
 
-playerCharacterChoiceIndex = {
-    1: {"Type": "Mage", "Strength": "Melee", "Weakness": "Ranger"},
-    2: {"Type": "Ranger", "Strength": "Mage", "Weakness": "Melee"},
-    3: {"Type": "Warrior", "Strength": "Ranger", "Weakness": "Mage"},
-}
-playerHealthList = [100]
-check1 = False
-while not check1:
+
+lumbridgePart1Pathway= {"North": "Trap", "East": "Trap", "West": "Trap", "South": "Clear"}
+
+pathway = np.arrange(4)  # 0, 1, 2, 3 stands for 4 paths North/South/West/East
+pathway_arrangement = np.random.shuffle(tmp).reshape(2,2)  # reshape into a 2x2 grid
+
+
+inputCheck1 = False
+while not inputCheck1:
     character = input("Please select a character\n"
                       "'1' to play as a Mage\n"
                       "'2' to play as a Ranger\n"
@@ -31,7 +43,7 @@ while not check1:
     if character.isnumeric():
         character = int(character)
         if 0 < character < 4:
-            check1 = True;
+            inputCheck1 = True;
         else:
             print("Your number was out of bounds, Please enter a '1','2' or '3'")
     else:
@@ -76,6 +88,6 @@ if lumbridgePart1 == True:
     t.sleep(2)
     print("Congratulations you successfully passed Chapter 1 of Lumbridge")
     t.sleep(1)
-    print(f"your health is at: {playerHealthList[-1]}")
+    print(f"your health is at: {trap(newHealth)}")
 else:
-    print("Even your parents think you're a failure")
+    print("GAME OVER, return to Lumbridge!")

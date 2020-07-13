@@ -20,34 +20,32 @@ while not flag2:
     else:
         print("Listen mate, that's not a number... don't be funny")
 
-flag3 = False    #Setting flag so we enter the while loop
-while not flag3: #whilst not true
-    increment = input("What number would you like to the increment to be?\n") # ask user for input
-    if increment.isnumeric(): #checks if the input is from 0-9
-        increment = int(increment) # change from string input to int type
-        flag3 = True # lifts flag to allow us to continue
+flag3 = False    # setting flag so we enter the while loop
+while not flag3:
+    increment = input("What number would you like to the increment to be?\n")
+    if increment.isnumeric(): # Checks if the input is from 0-9
+        increment = int(increment) # Change from string input to int type
+        flag3 = True #lifts flag to allow us to continue
     else:
-        print("Listen mate, that's not a number... don't be funny") # if not numeric repeat
+        print("Listen mate, that's not a number... don't be funny") #if not numeric repeat
 
 Fizz = "Fizz"
 Buzz = "Buzz"
-
 wordChange = input("Would you like to change either of the words?\n")
-# if wordChange != ""
+
 if len(wordChange) > 0:
     if wordChange[0].upper() == "Y":
         Fizz = input("What would you like the new 'Fizz' word to be replaced with?\n")
         Buzz = input("What would you like the new 'Buzz' word to be replaced with?\n")
 
-newList = []
+new_list = []
 for number in range(startFrom, endAt, increment):
     if number % 5 == 0 and number % 3 == 0:
-        newList.append(Fizz+Buzz)
+        new_list.append(Fizz+Buzz)
     elif number % 5 == 0:
-        newList.append(Buzz)
+        new_list.append(Buzz)
     elif number % 3 == 0:
-        newList.append(Fizz)
+        new_list.append(Fizz)
     else:
-        newList.append(number)
-
-print(newList)
+        new_list.append(number)
+    print(new_list[-1])

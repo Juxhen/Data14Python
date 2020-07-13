@@ -1,7 +1,7 @@
 startFrom = 1
 endAt = 100
 
-for numbers in range(startFrom,endAt,1):
+for numbers in range(startFrom, endAt, 1):
     if numbers % 3 == 0 and numbers % 5 == 0:
         print("FizzBuzz")
     if numbers % 3 == 0:
