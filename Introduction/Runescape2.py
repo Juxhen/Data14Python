@@ -27,12 +27,12 @@ def trap(Health):
 #     return path
 #
 
-
-lumbridgePart1Pathway= {"North": "Trap", "East": "Trap", "West": "Trap", "South": "Clear"}
-
-pathway = np.arrange(4)  # 0, 1, 2, 3 stands for 4 paths North/South/West/East
-pathway_arrangement = np.random.shuffle(tmp).reshape(2,2)  # reshape into a 2x2 grid
-
+#
+# lumbridgePart1Pathway= {"North": "Trap", "East": "Trap", "West": "Trap", "South": "Clear"}
+#
+# pathway = np.arrange(4)  # 0, 1, 2, 3 stands for 4 paths North/South/West/East
+# pathway_arrangement = np.random.shuffle(tmp).reshape(2, 2)  # reshape into a 2x2 grid
+#
 
 inputCheck1 = False
 while not inputCheck1:
