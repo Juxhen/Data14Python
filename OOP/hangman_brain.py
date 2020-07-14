@@ -1,5 +1,4 @@
 import random as r
-import hangmanGame as hg
 from hangmanWords import word_list
 
 
@@ -20,5 +19,4 @@ class Logic:
 
 
 winning_word = Logic()
-
 
