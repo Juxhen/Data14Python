@@ -1,6 +1,8 @@
 import hangman_brain as hl
 import random as r
 
+winning_word = hl.winning_word.get_word()
+
 
 class Game:
 
@@ -8,22 +10,15 @@ class Game:
         self.welcome_message()
         self.secret_list = []
         self.user_guess_list = []
-        self.display_list = []
         self.lives = 100
-        self.winning_word = hl.winning_word.get_word()
+        self.display_list = []
         self.user()
         self.levels()
-        self.string_to_list()
-        self.create_display_list(len(self.string_to_list()))
         self.get_guess()
-        self.look_for_letter(self.display_list, self.user_guess_list, self.winning_word)
+        self.string_to_list(winning_word)
+        self.create_display_list(len(self.string_to_list()))
         self.valid_guess(self.get_guess())
-        self.ensure_new_letter(self.get_guess())
-        self.final_guess()
-        # self.not_in_list(self.get_guess(), self.secret_list)
-        # self.health(self.levels(), self.get_guess(), self.display_list)
-        # self.look_for_letter(self.display_list, self.user_guess_list, self.winning_word)
-
+        self.look_for_letter(self.get_guess(), winning_word, self.display_list)
 
     def welcome_message(self):
         print("\n")
@@ -62,7 +57,7 @@ class Game:
                 print("Please enter a valid difficulty")
                 flag = False
 
-    def string_to_list(self, string=""):
+    def string_to_list(self, string=winning_word):
         new_list = []
         for letter in string:
             new_list.append(letter)
@@ -76,21 +71,22 @@ class Game:
 
     def get_guess(self):
         user_guess = input("Guess a letter!\n")
+        self.valid_guess()
         return user_guess
 
     # prevents user from continuing if guess is not alphabetical
-    def valid_guess(self, guess):
+    def valid_guess(self, user_guess):
         guess_is_valid = False
         while not guess_is_valid:
-            if guess.isalpha() and len(guess) == 1:
-                guess_is_valid = True
-                return guess.upper()
+            if user_guess.isalpha() and len(user_guess) == 1:
+                self.ensure_new_letter(user_guess)
+                return user_guess.upper()
             else:
                 print("That's not a letter")
                 guess_is_valid = False
-                guess = self.get_guess()
+                user_guess = self.get_guess()
 
-    def ensure_new_letter(self, guess, guess_list=[]):
+    def ensure_new_letter(self, guess, guess_list):
         if guess_list is None:
             guess_list = []
         guess_is_new = False
@@ -119,7 +115,7 @@ class Game:
         damage_taken = self.not_in_list(guess, list_with_correct_word)
         if lives_in_health - damage_taken < 0:
             new_health = 0
-            print(f"Congratulations, you're dead, the word was: {self.winning_word}")
+            print(f"Congratulations, you're dead, the word was: {winning_word}")
             # new_game = hl.winning_word.get_new_word()
             return new_health
         elif damage_taken == 0:
@@ -130,6 +126,7 @@ class Game:
         return new_health
 
     def look_for_letter(self, guess, hidden_word, displayed_list):
+        global letter
         index_counter = 0
         letter_in_word = False
         for letter in hidden_word:
@@ -137,13 +134,13 @@ class Game:
                 displayed_list[index_counter] = letter
                 letter_in_word = True
             index_counter += 1
-        if letter_in_word:
+        if not letter_in_word:
             print(f"Hooray, you matched the letter {letter}")
+            return displayed_list
         if "_" not in self.display_list:
             print(f"Congratulations, the word was: {hidden_word}")
             # new_game = hl.winning_word.get_new_word()
         return displayed_list
-
 
 
 my_game = Game() # Object of Game class

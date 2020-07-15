@@ -12,10 +12,8 @@ class Logic:
         return self.__word.upper()
 
     def get_new_word(self):
-        new_word = r.choice(word_list)
-        if self.word == winning_word:
-            new_word = r.choice(word_list)
-        return new_word
+        self.__word = r.choice(word_list)
+        return self.__word
 
 
 winning_word = Logic()
