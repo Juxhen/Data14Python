@@ -6,6 +6,9 @@ class Logic:
 
     def __init__(self):
         self.__word = r.choice(word_list)
+        # self._level_selector = {"Easy": 100,
+        #                         "Medium": 70,
+        #                         "Hard": 50}
         self.length = len(self.__word)
 
     def get_word(self):
@@ -17,4 +20,3 @@ class Logic:
 
 
 winning_word = Logic()
-

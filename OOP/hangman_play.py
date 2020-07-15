@@ -4,4 +4,5 @@ import hangman_game_2 as hg
 import random as r
 import time as t
 
-my_game = hg.new_game.__init__()
+#my_game = hg.new_game.__init__()
+start_game = hg.Game()

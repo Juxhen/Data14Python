@@ -1,5 +1,4 @@
 import sys
-
 import hangman_brain as hl
 import random as r
 
