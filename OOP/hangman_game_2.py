@@ -19,9 +19,6 @@ class Game:
         self.new_word = hl.winning_word.get_new_word()
         self.list_view()
         self.run()
-        #self.new_game()
-        #self.start_new_game()
-
 
     def welcome_message(self):
         print("\n")
