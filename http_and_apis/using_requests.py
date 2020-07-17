@@ -14,14 +14,14 @@ address = "https://api.postcodes.io/postcodes/"
 req_response = requests.post(address, headers=headers, data=json_body)
 # pprint(req_response.json())
 
-# pprint(req_response.json()['result'][0])
+pprint(req_response.json()['result'][0])
 
 #print the postcode, eastings, northings and NUTS code for each result
 
-#my way
-for i in range(4):
-    result = req_response.json()['result'][i]
-    print(f"Postcodes: {result['result']['postcode']} Eastings: {result['result']['eastings']} Northings: {result['result']['northings']} and Nuts: {result['result']['codes']['nuts']}")
+# #my way
+# for i in range(4):
+#     result = req_response.json()['result'][i]
+#     print(f"Postcodes: {result['result']['postcode']} Eastings: {result['result']['eastings']} Northings: {result['result']['northings']} and Nuts: {result['result']['codes']['nuts']}")
 
 #davids better way
 for postcode in req_response.json()['result']:

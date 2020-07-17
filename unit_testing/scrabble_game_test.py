@@ -17,7 +17,7 @@ class ScrabbleTests(unittest.TestCase):
             if self.letters[x] == 1:
                 self.start_score += 1
             elif
-    #     # self.assertEqual(self.calc.add(2, 2), 4)
+         self.assertEqual(self.calc.add(2, 2), 4)
     #     # self.assertEqual(self.calc.add(1, 1), 2)
     #     # self.assertEqual(self.calc.add(-5, -2), -7)
     #     # self.assertEqual(self.calc.add(0, 10), 10)
