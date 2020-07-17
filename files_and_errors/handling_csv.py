@@ -35,7 +35,7 @@ def read_data(dataset):
             #next(csv_reader)
             headers = list(map(str.lstrip, next(csv_reader)))
             print(headers)
-            return csv_reader
+            return list(csv_reader)
     except FileNotFoundError:
         print("file not found")
 
@@ -55,10 +55,7 @@ def find_mean(dataset, reader):
 
 the_means = find_mean("iris.csv", read_data("iris.csv"))
 # print(the_means)
-the_means_with_headers = ['sepal_length', find_mean[0]],
-                          ['sepal_width', find_mean[1]],
-                          ['petal_length', find_mean[2]],
-                          ['petal_width', find_mean[3]]
+the_means_with_headers = ['sepal_length', find_mean[0]],['sepal_width', find_mean[1]],['petal_length', find_mean[2]],['petal_width', find_mean[3]]
 
 with open("means.csv", "w") as opened_csv:
-    opened_csv.write(the_means_with_headers)
+    opened_csv.writelines(the_means_with_headers)
