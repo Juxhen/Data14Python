@@ -62,7 +62,7 @@ class Pikachu:
                 pokeapi.writelines("\n")
 
 
-play = Pikachu("chikorita")
+play = Pikachu("pikachu")
 # play.abilities_and_effects()
 # play.appened_to_txt_file()
 play.name_of_games_appeared_in()
