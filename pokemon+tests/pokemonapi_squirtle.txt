@@ -1,0 +1,16 @@
+------------------------------SQUIRTLE------------------------------
+
+Squirtle's first ability is: torrent, and the Effect: Strengthens water moves to inflict 1.5× damage at 1/3 max HP or less.
+Squirtle's second ability is: rain-dish, and the Effect: Heals for 1/16 max HP after each turn during rain.
+
+
+Squirtle has appeared in 20 Pokemon games
+The games appeared in are: ['red', 'blue', 'yellow', 'gold', 'silver', 'crystal', 'ruby', 'sapphire', 'emerald', 'firered', 'leafgreen', 'diamond', 'pearl', 'platinum', 'heartgold', 'soulsilver', 'black', 'white', 'black-2', 'white-2']
+
+
+hp : 44
+attack : 48
+defense : 65
+special-attack : 50
+special-defense : 64
+speed : 43

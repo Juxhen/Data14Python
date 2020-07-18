@@ -55,7 +55,7 @@ class PokemonStuff:
 
 
     def appened_abilities_and_effects_to_txt_file(self):
-        with open("pokemonapi.txt", "a") as pokeapi:
+        with open(f"pokemonapi_{self.pokemon_name}.txt", "a") as pokeapi:
             pokeapi.writelines(f"------------------------------{self.pokemon_name.upper()}------------------------------")
             pokeapi.writelines("\n")
             pokeapi.writelines("\n")
@@ -84,14 +84,14 @@ class PokemonStuff:
                 pokeapi.writelines("\n")
 
     def appened_name_of_games_appeared_in(self):
-        with open("pokemonapi.txt", "a") as pokeapi:
+        with open(f"pokemonapi_{self.pokemon_name}.txt", "a") as pokeapi:
             pokeapi.writelines("\n")
             pokeapi.writelines("\n")
             pokeapi.writelines(f"{self.pokemon_name.capitalize()} has appeared in {len(self.list_of_game_indices)} Pokemon games\n")
             pokeapi.writelines(f"The games appeared in are: {self.list_of_game_names}")
 
     def appened_base_stats(self):
-        with open("pokemonapi.txt", "a") as pokeapi:
+        with open(f"pokemonapi_{self.pokemon_name}.txt", "a") as pokeapi:
             pokeapi.writelines("\n")
             pokeapi.writelines("\n")
             for x in range(len(self.list_of_base_stats_names)):
