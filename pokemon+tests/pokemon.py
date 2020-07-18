@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 import requests
 import json
 from pprint import pprint
@@ -5,23 +7,26 @@ from pprint import pprint
 class PokemonStuff:
 
     def __init__(self, pokemon_name):
-        self.pokemon_name = pokemon_name
-        self.address = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}/"
-        self.req_response = requests.get(self.address)
-        self.all_info = self.req_response.json()
-        self.list_of_abilities_names = []
-        self.list_of_abilities_urls = []
-        self.list_of_effect = []
-        self.list_of_game_indices = []
-        self.list_of_game_names = []
-        self.list_of_base_stats = []
-        self.list_of_base_stats_names = []
-        self.get_abilities_and_effects()
-        self.appened_abilities_and_effects_to_txt_file()
-        self.get_name_of_games_appeared_in()
-        self.appened_name_of_games_appeared_in()
-        self.get_base_stats()
-        self.appened_base_stats()
+        try:
+            self.pokemon_name = pokemon_name
+            self.address = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}/"
+            self.req_response = requests.get(self.address)
+            self.all_info = self.req_response.json()
+            self.list_of_abilities_names = []
+            self.list_of_abilities_urls = []
+            self.list_of_effect = []
+            self.list_of_game_indices = []
+            self.list_of_game_names = []
+            self.list_of_base_stats = []
+            self.list_of_base_stats_names = []
+            self.get_abilities_and_effects()
+            self.appened_abilities_and_effects_to_txt_file()
+            self.get_name_of_games_appeared_in()
+            self.appened_name_of_games_appeared_in()
+            self.get_base_stats()
+            self.appened_base_stats()
+        except JSONDecodeError:
+            print("This pokemon doesn't exist")
 
 
     def get_abilities_and_effects(self):
