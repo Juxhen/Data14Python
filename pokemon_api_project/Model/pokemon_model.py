@@ -12,8 +12,6 @@ class Pikachu:
         self.list_of_abilities_names = []
         self.list_of_abilities_urls = []
         self.list_of_effect = []
-        self.list_of_game_indices = []
-        self.list_of_game_names = []
 
     def abilities_and_effects(self):
         for row in self.all_info['abilities']:
@@ -26,14 +24,6 @@ class Pikachu:
                 if row['language']['name'] == 'en':
                     short_effect = row['short_effect']
                     self.list_of_effect.append(short_effect)
-
-    def name_of_games_appeared_in(self):
-        for row in self.all_info['game_indices']:
-            self.list_of_game_indices.append(row['game_index'])
-        print(f"{self.pokemon_name} has appeared in {len(self.list_of_game_indices)} Pokemon games")
-        for game_name in self.all_info['game_indices']:
-            self.list_of_game_names.append(game_name['version']['name'])
-        pprint(self.list_of_game_names)
 
     def appened_to_txt_file(self):
         with open("pokemonapi.txt", "a") as pokeapi:
@@ -62,7 +52,6 @@ class Pikachu:
                 pokeapi.writelines("\n")
 
 
-play = Pikachu("chikorita")
-# play.abilities_and_effects()
-# play.appened_to_txt_file()
-play.name_of_games_appeared_in()
+play = Pikachu("pikachu")
+play.abilities_and_effects()
+play.appened_to_txt_file()
