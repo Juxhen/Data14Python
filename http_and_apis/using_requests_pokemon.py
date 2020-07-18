@@ -30,7 +30,7 @@ for x in range(2):
 
 for effects in url_for_effects:
     result = effects['effect']
-    list_of_effect.append(result['effect'])
+    list_of_effect.append(result)
     pprint(list_of_effect)
 
 # effect_entries -> effect[1]
