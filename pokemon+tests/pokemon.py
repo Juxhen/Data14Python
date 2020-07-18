@@ -1,8 +1,8 @@
 from json import JSONDecodeError
-
 import requests
 import json
 from pprint import pprint
+
 
 class PokemonStuff:
 
