@@ -19,6 +19,9 @@ class PokemonStuff:
             self.list_of_game_names = []
             self.list_of_base_stats = []
             self.list_of_base_stats_names = []
+            self.list_of_pokemon_type = []
+            self.get_pokemon_type()
+            self.appened_pokemon_type()
             self.get_abilities_and_effects()
             self.appened_abilities_and_effects_to_txt_file()
             self.get_name_of_games_appeared_in()
@@ -27,7 +30,6 @@ class PokemonStuff:
             self.appened_base_stats()
         except JSONDecodeError:
             print("This pokemon doesn't exist")
-
 
     def get_abilities_and_effects(self):
         for row in self.all_info['abilities']:
@@ -53,10 +55,12 @@ class PokemonStuff:
         for row2 in self.all_info['stats']:
             self.list_of_base_stats_names.append(row2['stat']['name'])
 
+    def get_pokemon_type(self):
+        for row in self.all_info['types']:
+            self.list_of_pokemon_type.append(row['type']['name'])
 
     def appened_abilities_and_effects_to_txt_file(self):
         with open(f"pokemonapi_{self.pokemon_name}.txt", "a") as pokeapi:
-            pokeapi.writelines(f"------------------------------{self.pokemon_name.upper()}------------------------------")
             pokeapi.writelines("\n")
             pokeapi.writelines("\n")
             if len(self.list_of_abilities_names) == 1:
@@ -97,6 +101,13 @@ class PokemonStuff:
             for x in range(len(self.list_of_base_stats_names)):
                 pokeapi.writelines("\n")
                 pokeapi.writelines(f"{self.list_of_base_stats_names [x]} : {self.list_of_base_stats [x]}")
+
+    def appened_pokemon_type(self):
+        with open(f"pokemonapi_{self.pokemon_name}.txt", "a") as pokeapi:
+            pokeapi.writelines(f"------------------------------{self.pokemon_name.upper()}------------------------------")
+            pokeapi.writelines("\n")
+            pokeapi.writelines("\n")
+            pokeapi.writelines(f"{self.pokemon_name.capitalize()} is an {self.list_of_pokemon_type} type Pokemon")
 
 
 # play = Pokemon()
