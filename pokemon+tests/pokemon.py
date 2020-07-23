@@ -119,3 +119,6 @@ class PokemonStuff:
             pokeapi.writelines("\n")
             pokeapi.writelines("\n")
             pokeapi.writelines(f"{self.pokemon_name.capitalize()} is an {self.list_of_pokemon_type} type Pokemon")
+
+# return a string with new lines, that iterates through number of games and appened as a str
+

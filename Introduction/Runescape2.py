@@ -43,7 +43,7 @@ while not inputCheck1:
     if character.isnumeric():
         character = int(character)
         if 0 < character < 4:
-            inputCheck1 = True;
+            inputCheck1 = True
         else:
             print("Your number was out of bounds, Please enter a '1','2' or '3'")
     else:

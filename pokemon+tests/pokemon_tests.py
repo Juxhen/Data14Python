@@ -1,7 +1,6 @@
 from pokemon import PokemonStuff
 import unittest
-import math
-
+#import OS package
 
 class PokeTests(unittest.TestCase):
 
